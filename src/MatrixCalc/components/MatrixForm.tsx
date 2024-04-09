@@ -19,8 +19,8 @@ export const MatrixForm = ():ReactElement=>{
         elements.push(
           <input 
           type="number"
-          key={`${i}_${j}`} 
-          className="aspect-[2/1] text-center w-[80px] border" 
+          key={`${i}_${j}`}
+          className="aspect-[2/1] text-center w-[80px] border bg-[#3f3f3f]" 
           value={matrix[i][j]== 0? '': matrix[i][j]}
           placeholder="0"
           onChange={(e=>onChange(i,j,Number(e.target.value)))}/>
