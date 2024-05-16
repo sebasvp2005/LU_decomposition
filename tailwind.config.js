@@ -10,11 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#242424",
-        secondary: "#e8c36e",
-        accent: "#26329f",
+        primary: "#ede0d4",
+        secondary: "#7f5539",
+        accent: "#9c6644",
         light: "#fcfcfc",
-        purple: "#271d69"
       }
     },
   },

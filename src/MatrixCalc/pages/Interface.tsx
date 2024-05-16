@@ -21,14 +21,14 @@ export const Interface = ():ReactElement => {
 
   return (
     <>
-      <div className='grid grid-rows-[auto,1fr,auto] h-[100vh]'>
+      <div className='grid grid-rows-[auto,1fr,auto] min-h-[100vh] bg-primary'>
         <Header/>
-        <div className='grid grid-cols-[1fr_5fr] max-md:grid-cols-1'>
+        <div className='grid grid-cols-[1fr_5fr] max-md:grid-cols-1 text-secondary'>
           <div className='flex flex-col text-2xl space-y-4 max-md:flex-row max-md:space-y-0  max-md:space-x-4 items-center'>
             {
               sideBarOptions.map((e, index)=>{
                 return(
-                  <button key={`side_${index}`} onClick={()=>setCurIndex(index)}>{e.name}</button>
+                  <button key={`side_${index}`} onClick={()=>setCurIndex(index)} className={`${curIndex==index? `font-bold`:``}`}>{e.name}</button>
                 )
               })
             }

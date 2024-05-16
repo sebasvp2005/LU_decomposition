@@ -20,7 +20,7 @@ export const MatrixForm = ():ReactElement=>{
           <input 
           type="number"
           key={`${i}_${j}`}
-          className="aspect-[2/1] text-center w-[80px] border bg-[#3f3f3f]" 
+          className="aspect-[2/1] text-center w-[80px] border bg-[#e6ccb2] text-secondary" 
           value={matrix[i][j]== 0? '': matrix[i][j]}
           placeholder="0"
           onChange={(e=>onChange(i,j,Number(e.target.value)))}/>
@@ -48,7 +48,7 @@ export const MatrixForm = ():ReactElement=>{
 
     const temp = [...history]
     if(temp.length!=0){
-      temp.push(<div key={`div_${temp.length}`} className="h-[0.5px] w-full my-4 bg-white"></div>)
+      temp.push(<div key={`div_${temp.length}`} className="h-[0.5px] w-full my-4 bg-secondary"></div>)
     }
     temp.push(LUDecomposition(matrix))
     setHistory(temp)
@@ -59,24 +59,27 @@ export const MatrixForm = ():ReactElement=>{
     <>
       <div className="w-[90%] mx-auto flex flex-col items-center space-y-4">
         <span className="text-3xl">Matrix</span>
+        <div className="overflow-x-auto">
 
-        <div className="flex space-x-4">
-          <div className=" min-h-full w-[0.5px] bg-white"></div>
-          <div className={`grid gap-1`} style={{"gridTemplateColumns": `repeat(${matrix.length}, minmax(0, 1fr))`}}>
-            {CreateForm()}
+          <div className="grid space-x-4 overflow-x-auto max-w-full">
+            <div className=" min-h-full w-[0.5px] bg-secondary"></div>
+            <div className={`grid gap-1 overflow-x-auto text-center`} style={{"gridTemplateColumns": `repeat(${matrix.length}, 80px)`}}>
+              {CreateForm()}
+            </div>
+            <div className=" min-h-full w-[0.5px] bg-secondary"></div>
           </div>
-          <div className=" min-h-full w-[0.5px] bg-white"></div>
+
         </div>
 
         <div className="space-x-3 text-2xl mt-4">
-          <button className=" px-4 bg-gray-600 rounded-lg border" onClick={decrease}>-</button>
-          <button className=" px-4 bg-gray-600 rounded-lg border " onClick={reset}>Clear</button>
-          <button className=" px-4 bg-gray-600 rounded-lg border " onClick={increase}>+</button>
+          <button className=" px-4 bg-secondary text-white hover:bg-accent rounded-lg border" onClick={decrease}>-</button>
+          <button className=" px-4 bg-secondary text-white hover:bg-accent rounded-lg border " onClick={reset}>Clear</button>
+          <button className=" px-4 bg-secondary text-white hover:bg-accent rounded-lg border " onClick={increase}>+</button>
         </div>
         <div className="grid" >
-          <button className="bg-gray-500 py-1 px-2 border" onClick={LUDecom}>LU Decomposition</button>
+          <button className=" bg-secondary text-white hover:bg-accent py-1 px-2 border" onClick={LUDecom}>LU Decomposition</button>
         </div>
-        <div className="h-[0.5px] w-full bg-white"></div>
+        <div className="h-[0.5px] w-full bg-secondary"></div>
         <span className="self-start ml-4 text-2xl">History</span>
         <div className="flex flex-col-reverse  w-full">
           {
