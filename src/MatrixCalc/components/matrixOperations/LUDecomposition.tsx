@@ -99,14 +99,14 @@ export const LUDecomposition = (matrix: Array<Array<number>>):ReactElement=>{
       let factor = U[i][j] / U[j][j]
       for(let k =0; k<n; k++){
         U[i][k] -= U[j][k]*factor
-        U[i][k] = Number(U[i][k].toFixed(3))
+        U[i][k] = Number(U[i][k].toFixed(2))
       }
 
-      L[i][j] = Number(factor.toFixed(3))
+      L[i][j] = Number(factor.toFixed(2))
       if(factor==0)continue;
       elements.push(
         <div key={`${i}${j}_U`} className="flex items-center my-4">
-          <span className=" mx-4 self-center">{`F${i+1}  - (${factor.toFixed(3)} * F${j+1}) `}</span>
+          <span className=" mx-4 self-center">{`F${i+1}  - (${factor.toFixed(2)} * F${j+1}) `}</span>
           {renderMatrix(U, n)}
         </div>
     )

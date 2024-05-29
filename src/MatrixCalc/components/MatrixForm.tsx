@@ -54,6 +54,20 @@ export const MatrixForm = ():ReactElement=>{
     setHistory(temp)
   }
 
+  const Random =()=>{
+    let a:number [][] = [];
+    for(let i =0; i<matrix.length; i++){
+      let r :number[] = []
+      for(let j=0; j<matrix.length; j++){
+        r.push( Math.floor(Math.random() * 100))
+      }
+      a.push(r)
+    }
+    setMatrix(a)
+    console.log(a)
+  }
+
+
   
   return(
     <>
@@ -76,8 +90,9 @@ export const MatrixForm = ():ReactElement=>{
           <button className=" px-4 bg-secondary text-white hover:bg-accent rounded-lg border " onClick={reset}>Clear</button>
           <button className=" px-4 bg-secondary text-white hover:bg-accent rounded-lg border " onClick={increase}>+</button>
         </div>
-        <div className="grid" >
+        <div className="grid grid-cols-2 gap-4" >
           <button className=" bg-secondary text-white hover:bg-accent py-1 px-2 border" onClick={LUDecom}>LU Decomposition</button>
+          <button className=" bg-secondary text-white hover:bg-accent py-1 px-2 border" onClick={Random}>Random</button>
         </div>
         <div className="h-[0.5px] w-full bg-secondary"></div>
         <span className="self-start ml-4 text-2xl">History</span>
